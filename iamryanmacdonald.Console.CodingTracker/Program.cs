@@ -1,3 +1,8 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using System.Configuration;
+using iamryanmacdonald.Console.CodingTracker;
 
-Console.WriteLine("Hello, World!");
+var connectionString = ConfigurationManager.ConnectionStrings["Default"].ConnectionString;
+
+var database = new Database(connectionString);
+var userInterface = new UserInterface(database);
+userInterface.MainMenu();
